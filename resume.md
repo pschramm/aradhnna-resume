@@ -1,66 +1,72 @@
-# ARADHNNA REDDY
+# Aradhnna Reddy
 
-San Antonio, TEXAS 78255 • (210) 381-0036 • aradhnnareddy@gmail.com
+San Antonio, TX 78255 • (210) 381-0036 • aradhnnareddy@gmail.com
+[LinkedIn](#) • [GitHub](#)
 
-Computer Science graduate focus on cybersecurity and data analytics. Leveraging a minor in Psychology to bridge technical systems and human behavior, supporting data-driven insights, security awareness, and responsible technology design and development.
-
----
-
-## EDUCATION
-
-**University of Texas at San Antonio** – San Antonio, Texas
-Bachelor of Science in Computer Science — Dec 2025
-Minor in Psychology. Concentrations in Cybersecurity and Data Science.
+CS graduate with concentrations in Cybersecurity and Data Science, and a minor in Psychology. Built hands-on projects in machine learning, steganography, NLP, and full-stack web development. Currently completing a Post Graduate AI/ML program at UT Austin McCombs. Targeting roles in data science, AI/ML engineering, or cybersecurity analytics.
 
 ---
 
-## SKILLS
+## Education
 
-**Languages:** Java, C, JavaScript, HTML/CSS, Python, SQL
+**University of Texas at San Antonio** — San Antonio, TX
+B.S. in Computer Science — Dec 2025
+Concentrations: Cybersecurity, Data Science | Minor: Psychology
 
-**Tools & Libraries:** OpenCV, NumPy, PyWavelets, NLP, AWS, MySQL
+**University of Texas at Austin, McCombs School of Business**
+Post Graduate Program in Artificial Intelligence & Machine Learning: Business Applications
+May 2026 – Oct 2026 *(in progress)*
 
-Experience with SAP Hana and Joule
-
-- Flexible and adaptable
-- Translating technical findings into usable organized data
-- Able to handle ambiguity
-- Responsive
-
-**Relevant Concepts:** Data Structures, Applications Programming, Cryptography, Artificial Intelligence, Algorithms, Web Technologies
+**Certifications**
+- Google / AWS / other certs here if applicable
 
 ---
 
-## EXPERIENCE
+## Skills
 
-- **Database System for Music Shop Management – SQL.** Lead a team of five in designing and implementing a relational database system meant to support inventory, sales, and customer management to streamline operation for music shop owners.
-  - Gained valuable leadership experience along with learned how to develop efficient SQL queries to make a fully functional and user-friendly backend-system capable of outputting data-driven insights.
+**Languages:** Python, Java, SQL, JavaScript, HTML/CSS, C
 
-- **Sentiment Analysis of Movies and T.V. Shows – Python.** Developed a comprehensive analysis system in a team of three using various types of machine learning and lexicon-based approaches to assess emotional tone used in user reviews of films and T.V. shows.
-  - Operates large datasets using natural language processing techniques (tokenization, lemmatization, vectorization). Built and evaluated five different models to gauge performance and accuracy. Focused on model validation and bias awareness when analyzing sentiment datasets. Results were able to be shown through visualization and showed promising results for demonstrating learning capabilities.
+**Libraries & Frameworks:** NumPy, OpenCV, PyWavelets, Pillow (PIL), NLP / NLTK / scikit-learn
 
-- **Discrete Wavelet Transform (DWT) QR Steganography Tool – Python.** Covertly embedded and extracted QR-encoded data in images using frequency-domain (DWT) techniques.
-  - Implemented binary file handling, error correction, and robust extraction methods. Applied OpenCV, NumPy, PyWavelets, and PIL for secure image processing.
+**Cloud & Infrastructure:** AWS EC2, MySQL, PHP backend deployment
 
-- **Web Development & Server Deployment – HTML, CSS, JavaScript, PHP, SQL.** Explored UI/UX fundamentals through building a personal AWS server (EC2) over a 6-month period. Used Site to build sample webpages, create puzzles, custom layouts, and building relationship between HTML, CSS, and JavaScript. Integrated backend functionality using PHP and MySQL databases to create dynamic content.
-  - Learned to deploy websites on self-configured AWS server, gaining knowledge on cloud hosting, domain setup, server management, and full-stack web development.
+**Tools:** Git, SAP Hana / SAP Joule
 
-- **RowdyBall – Java.** Collaborated with a team of four to create a Magic 8-Ball application that provides a randomized answer to user-inputted questions.
-  - Utilized object-oriented programming and GUI design principles.
+**Concepts:** Machine Learning, Natural Language Processing, Cryptography, Data Structures, Algorithms, Cybersecurity, Web Technologies
 
 ---
 
-## INVOLVEMENT
+## Projects
 
-**Current Endeavor: Post Graduate Program in Artificial Intelligence and Machine Learning: Business Applications**
-University of Texas at Austin, McCombs School of Business — May 2026 – Oct 2026
+**Sentiment Analysis of Movies & TV Shows** — Python, NLP, Machine Learning
+- Built a multi-model sentiment analysis system on a team of three, evaluating emotional tone in user reviews of films and TV shows
+- Applied NLP preprocessing techniques (tokenization, lemmatization, vectorization) to large datasets
+- Trained and evaluated 5 classification models; focused on bias awareness, model validation, and visualization of results
+
+**Discrete Wavelet Transform (DWT) QR Steganography Tool** — Python, OpenCV, NumPy
+- Built a tool to covertly embed and extract QR-encoded data inside images using frequency-domain (DWT) techniques
+- Implemented binary file handling, error correction, and extraction robustness using OpenCV, NumPy, PyWavelets, and PIL
+
+**Database System for Music Shop Management** — SQL
+- Led a team of five to design and implement a relational database supporting inventory, sales, and customer management
+- Wrote optimized SQL queries to produce data-driven operational reports for business owners
+
+**Web Development & AWS Server Deployment** — HTML, CSS, JavaScript, PHP, SQL
+- Deployed a personal full-stack web application on a self-configured AWS EC2 instance over 6 months
+- Built dynamic content with PHP and MySQL backends; gained hands-on experience with cloud hosting, DNS, and server management
+
+**RowdyBall** — Java
+- Collaborated with a team of four to build a Java GUI application using object-oriented design principles
+
+---
+
+## Involvement
 
 **Sandwich SEVA** — 2023–Present
-- Volunteered 70+ hours overlooking groups of five or more.
-- Assembled, packed, and dropped off 250+ sandwiches in donation efforts at Haven for Hope each week.
+- Volunteered 70+ hours coordinating sandwich assembly and weekly donation drops (250+ sandwiches/week) to Haven for Hope
 
-**Association of Computational Machinery (ACM)** — 2022–2025
-- Organization that discusses various aspects of technology and computer science, hosts hackathons and various fundraisers.
+**Association for Computing Machinery (ACM), UTSA Chapter** — 2022–2025
+- Active member; participated in hackathons, tech talks, and fundraising events
 
-**Sitaara – Liaison** — 2022
-- Led 32 students from Rice University. In charge of navigating room and board, food, water, practice spaces, and other needs.
+**Sitaara – Student Liaison** — 2022
+- Coordinated logistics for 32 students from Rice University including housing, meals, practice spaces, and scheduling

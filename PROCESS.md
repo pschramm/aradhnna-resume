@@ -54,23 +54,55 @@ A UT Austin McCombs post-grad AI/ML certificate while job hunting shows initiati
 Each commit below corresponds to a specific improvement. Read the diffs alongside these explanations.
 
 ### Commit: Raw baseline
-The unedited PDF extracted to markdown. This is the starting point — everything after this is an improvement.
+The unedited PDF extracted to markdown. This is the starting point — everything after this is an improvement. The original PDF is also included in the repo as `aradhnna-reddy-resume-original.pdf` so there is always a reference copy.
 
-### Commit: Structural fixes
-- Renamed `EXPERIENCE` → `PROJECTS` — accurate labeling for academic work
-- Moved the UT Austin AI/ML program out of `INVOLVEMENT` into `EDUCATION`
-- Separated soft skills from the technical skills list entirely
-- Added placeholder for GitHub and LinkedIn links in the header
+### Commit: Improved resume.md + PROCESS.md
 
-### Commit: Content improvements
-- Rewrote project bullets using action-verb + outcome format
-- Cut or condensed the weakest project entries
-- Tightened the summary to be specific and positioning-focused
-- Reordered projects by strength (cybersecurity + ML first)
-- Split skills into clearly labeled categories
+Here is a walkthrough of every edit made and the reasoning behind each decision:
+
+**1. Header — added LinkedIn and GitHub placeholders**
+The original had no social links. For a CS graduate, a GitHub profile is table stakes — recruiters click it to verify that your project work is real and to see how you write code. LinkedIn is a second credibility signal. Both were added as placeholders (`[#]`) so you just need to fill in your URLs.
+
+**2. Summary — rewritten to be specific and role-targeted**
+Original: *"Computer Science graduate focus on cybersecurity and data analytics. Leveraging a minor in Psychology to bridge technical systems and human behavior..."*
+
+This reads like an essay opener. A resume summary has one job: position you clearly in under three sentences. The new version names what you built, what program you're currently in, and what roles you're targeting. A recruiter should be able to read it and instantly know where you fit.
+
+**3. Education — moved the UT Austin AI/ML program here from Involvement**
+The McCombs post-graduate program is an educational credential, not a club activity. Listing it under "Involvement" buried one of your strongest differentiators. Moving it into Education gives it the weight it deserves and shows two institutions on your resume — that stands out for a new grad.
+
+**4. Skills — removed soft skills, reorganized into categories**
+Removed from the list: *"Flexible and adaptable," "Able to handle ambiguity," "Responsive"*
+
+These do not belong in a technical skills section. Applicant tracking systems (ATS) and engineers scan this section for specific tools, languages, and platforms. Soft skills listed here actively hurt credibility — they signal you didn't know what to put. Soft skills are shown through your bullet points (led a team, volunteered 70+ hours) not stated as keywords.
+
+Languages were also reordered to put Python first since you're targeting data science and AI/ML roles — Python is the first thing those recruiters look for.
+
+**5. Renamed EXPERIENCE → PROJECTS**
+Every item under that section was an academic project, not paid or internship work. Labeling it "Experience" is either naive or misleading to a recruiter — and they will notice. "Projects" is completely normal and respected for a new graduate. The projects themselves are strong; the label was the only problem.
+
+**6. Reordered projects — strongest and most relevant first**
+Original order had no clear logic. New order prioritizes impact and target-role relevance:
+1. Sentiment Analysis (ML + NLP — directly relevant to data science/AI roles)
+2. DWT Steganography Tool (security + Python — strong technical depth)
+3. Music Shop Database (SQL + leadership)
+4. AWS Web Deployment (cloud + full-stack)
+5. RowdyBall (Java GUI — weakest, moved last)
+
+Recruiters read top to bottom and often stop early. Lead with your best work.
+
+**7. Rewrote project bullets — action verb + outcome format**
+Before (Sentiment Analysis): *"Operates large datasets using natural language processing techniques (tokenization, lemmatization, vectorization). Built and evaluated five different models to gauge performance and accuracy..."* — one long run-on paragraph.
+
+After: Three clean, scannable bullets each starting with an action verb and ending with a specific outcome or result.
+
+The formula is: **[Action verb] + [what you built or did] + [why it mattered or what it demonstrated]**
+
+**8. Fixed ACM name**
+The original said "Association of Computational Machinery." The correct name is "Association for Computing Machinery." Small detail, but visible to anyone in the field.
 
 ### Commit: resume.json
-Structured data version of the improved resume in JSON Resume format. This powers web rendering and PDF generation.
+Structured data version of the improved resume in JSON Resume format. This powers web rendering and PDF generation — the same approach used at patrickschramm.dev.
 
 ---
 
