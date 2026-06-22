@@ -117,6 +117,30 @@ When tailoring this resume for a specific job:
 
 ---
 
+## Open Questions (GitHub Issues)
+
+This repo has a few open **Issues** — GitHub's built-in task tracker. You can find them by clicking the **Issues** tab at the top of the repo page on GitHub.
+
+Each issue is a question or piece of missing information that would make the resume stronger. Think of them like sticky notes — once you've handled one, you or Patrick can close it.
+
+**How to respond to an issue:**
+1. Go to [github.com/pschramm/aradhnna-resume/issues](https://github.com/pschramm/aradhnna-resume/issues)
+2. Click an issue to read it
+3. Leave a comment with your answer (e.g. paste your LinkedIn URL, or say "I don't have a GPA worth listing")
+4. Once it's resolved, click **Close issue** — it stays in the history but gets out of the active list
+
+You don't need to know git or write code to use issues. They're just a structured way to track what still needs to be done.
+
+**Current open questions:**
+- Your GitHub and LinkedIn profile URLs
+- Whether your GPA is worth listing (3.5+ is the general threshold)
+- How deep your SAP Hana / SAP Joule exposure is (class? project? self-study?)
+- What Sitaara is — one line of context would help a reader understand the leadership scope
+- Whether any of your project repos are public on GitHub (links would strengthen the Projects section significantly)
+- Any internship or paid work experience not on the original resume
+
+---
+
 ## How the Automation Works
 
 This repo uses **GitHub Actions** — a built-in automation tool on GitHub that runs tasks automatically when you push changes. You don't need to install anything or run any commands yourself.
