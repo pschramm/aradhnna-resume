@@ -1,0 +1,140 @@
+{
+  "basics": {
+    "name": "Aradhnna Reddy",
+    "label": "Computer Science Graduate — Data Science & Cybersecurity",
+    "picture": "",
+    "email": "aradhnnareddy@gmail.com",
+    "phone": "(210) 381-0036",
+    "website": "",
+    "summary": "CS graduate with concentrations in Cybersecurity and Data Science, and a minor in Psychology. Built hands-on projects in machine learning, steganography, NLP, and full-stack web development. Currently completing a Post Graduate AI/ML program at UT Austin McCombs. Targeting roles in data science, AI/ML engineering, or cybersecurity analytics.",
+    "location": {
+      "city": "San Antonio",
+      "region": "TX",
+      "code": "78255",
+      "country": "US"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "",
+        "url": ""
+      },
+      {
+        "network": "GitHub",
+        "username": "",
+        "url": ""
+      }
+    ]
+  },
+  "work": [],
+  "projects": [
+    {
+      "name": "Sentiment Analysis of Movies & TV Shows",
+      "keywords": ["Python", "NLP", "Machine Learning", "scikit-learn"],
+      "highlights": [
+        "Built a multi-model sentiment analysis system on a team of three, evaluating emotional tone in user reviews of films and TV shows",
+        "Applied NLP preprocessing techniques (tokenization, lemmatization, vectorization) to large datasets",
+        "Trained and evaluated 5 classification models; focused on bias awareness, model validation, and visualization of results"
+      ]
+    },
+    {
+      "name": "Discrete Wavelet Transform (DWT) QR Steganography Tool",
+      "keywords": ["Python", "OpenCV", "NumPy", "PyWavelets", "Cryptography"],
+      "highlights": [
+        "Built a tool to covertly embed and extract QR-encoded data inside images using frequency-domain (DWT) techniques",
+        "Implemented binary file handling, error correction, and extraction robustness using OpenCV, NumPy, PyWavelets, and PIL"
+      ]
+    },
+    {
+      "name": "Database System for Music Shop Management",
+      "keywords": ["SQL", "Relational Database Design", "Team Leadership"],
+      "highlights": [
+        "Led a team of five to design and implement a relational database supporting inventory, sales, and customer management",
+        "Wrote optimized SQL queries to produce data-driven operational reports for business owners"
+      ]
+    },
+    {
+      "name": "Web Development & AWS Server Deployment",
+      "keywords": ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "AWS EC2"],
+      "highlights": [
+        "Deployed a personal full-stack web application on a self-configured AWS EC2 instance over 6 months",
+        "Built dynamic content with PHP and MySQL backends; gained hands-on experience with cloud hosting, DNS, and server management"
+      ]
+    },
+    {
+      "name": "RowdyBall",
+      "keywords": ["Java", "OOP", "GUI"],
+      "highlights": [
+        "Collaborated with a team of four to build a Java GUI application using object-oriented design principles"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Texas at San Antonio",
+      "area": "B.S. in Computer Science — Concentrations: Cybersecurity, Data Science | Minor: Psychology",
+      "studyType": "B.S.",
+      "startDate": "2021-08-01",
+      "endDate": "2025-12-01",
+      "url": "https://www.utsa.edu/",
+      "location": "San Antonio, TX"
+    },
+    {
+      "institution": "University of Texas at Austin, McCombs School of Business",
+      "area": "Post Graduate Program in Artificial Intelligence & Machine Learning: Business Applications",
+      "startDate": "2026-05-01",
+      "endDate": "2026-10-01",
+      "inProgress": true
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["Python", "Java", "SQL", "JavaScript", "HTML/CSS", "C"]
+    },
+    {
+      "name": "Libraries & Frameworks",
+      "keywords": ["NumPy", "OpenCV", "PyWavelets", "Pillow (PIL)", "NLTK", "scikit-learn"]
+    },
+    {
+      "name": "Cloud & Infrastructure",
+      "keywords": ["AWS EC2", "MySQL", "PHP backend deployment"]
+    },
+    {
+      "name": "Tools",
+      "keywords": ["Git", "SAP Hana", "SAP Joule"]
+    },
+    {
+      "name": "Concepts",
+      "keywords": ["Machine Learning", "Natural Language Processing", "Cryptography", "Data Structures", "Algorithms", "Cybersecurity", "Web Technologies"]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Sandwich SEVA",
+      "position": "Volunteer",
+      "startDate": "2023-01-01",
+      "highlights": [
+        "Volunteered 70+ hours coordinating sandwich assembly and weekly donation drops (250+ sandwiches/week) to Haven for Hope"
+      ]
+    },
+    {
+      "organization": "Association for Computing Machinery (ACM), UTSA Chapter",
+      "position": "Member",
+      "startDate": "2022-01-01",
+      "endDate": "2025-12-01",
+      "highlights": [
+        "Participated in hackathons, tech talks, and fundraising events"
+      ]
+    },
+    {
+      "organization": "Sitaara",
+      "position": "Student Liaison",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-01",
+      "highlights": [
+        "Coordinated logistics for 32 students from Rice University including housing, meals, practice spaces, and scheduling"
+      ]
+    }
+  ]
+}
