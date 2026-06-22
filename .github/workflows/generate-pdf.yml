@@ -4,9 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - resume.md
       - resume.json
-      - index.html
+      - template.html
+      - build.js
 
 jobs:
   pdf:
@@ -20,13 +20,27 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install md-to-pdf
-        run: npm install -g md-to-pdf
+      - name: Build index.html from resume.json + template
+        run: node build.js
 
-      - name: Generate resume.pdf from markdown
-        run: md-to-pdf resume.md --output resume.pdf
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Generate resume.pdf from index.html
+        run: |
+          node -e "
+            const puppeteer = require('puppeteer');
+            const path = require('path');
+            (async () => {
+              const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+              const page = await browser.newPage();
+              await page.goto('file://' + path.resolve('index.html'), { waitUntil: 'networkidle0' });
+              await page.pdf({ path: 'resume.pdf', format: 'Letter', printBackground: true });
+              await browser.close();
+            })();
+          "
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: regenerate resume.pdf"
-          file_pattern: resume.pdf
+          commit_message: "chore: regenerate index.html and resume.pdf"
+          file_pattern: index.html resume.pdf

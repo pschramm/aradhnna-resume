@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Design tokens — UT Austin brand palette ───── */
+    /* Colors: https://umac.utexas.edu/brand-center/colors/ */
+    :root {
+      --color-paper:      #ffffff;
+      --color-ink:        #333f48;   /* UT Dark Gray */
+      --color-ink-muted:  #6b7a85;
+      --color-accent:     #bf5700;   /* UT Burnt Orange */
+      --color-accent-bg:  #fdf3eb;   /* light burnt orange tint */
+      --color-border:     #d6d2c4;   /* UT Light Tan */
+      --color-tag-bg:     #f5f2ec;
+      --color-tag-ink:    #333f48;
+      --color-badge-bg:   #005f86;   /* UT Teal Blue */
+      --color-badge-ink:  #ffffff;
+
+      --font-serif: 'Lora', Georgia, serif;
+      --font-mono:  'DM Mono', 'Courier New', monospace;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+
+      --radius:     6px;
+      --max-width:  860px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-ink);
+      background: var(--color-paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover, a:focus-visible { color: var(--color-ink); }
+
+    .skip-nav {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--color-ink); color: var(--color-paper);
+      padding: .5rem 1rem; border-radius: 0 0 var(--radius) var(--radius);
+      font-family: var(--font-mono); font-size: .85rem; z-index: 999; text-decoration: none;
+    }
+    .skip-nav:focus { top: 0; }
+
+    .page { max-width: var(--max-width); margin: 2rem auto; padding: 0 1.25rem 4rem; }
+
+    /* ─── Header ────────────────────────────────────── */
+    header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .header-photo {
+      width: 88px; height: 88px; border-radius: 50%;
+      object-fit: cover; border: 3px solid var(--color-accent-bg);
+    }
+    .header-photo-placeholder {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: var(--color-accent-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 1.75rem;
+      color: var(--color-accent); flex-shrink: 0;
+    }
+
+    .header-meta { display: flex; flex-direction: column; gap: .35rem; }
+    .header-name { font-family: var(--font-serif); font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1; letter-spacing: -.02em; }
+    .header-title { font-family: var(--font-mono); font-size: .9rem; color: var(--color-accent); letter-spacing: .04em; text-transform: uppercase; }
+    .header-contact { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .25rem; font-size: .85rem; color: var(--color-ink-muted); }
+    .header-contact a { color: var(--color-ink-muted); }
+    .header-contact a:hover, .header-contact a:focus-visible { color: var(--color-accent); }
+    .header-badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+
+    .badge-open {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--color-badge-bg); color: var(--color-badge-ink);
+      font-family: var(--font-mono); font-size: .75rem;
+      padding: .25rem .7rem; border-radius: 999px; letter-spacing: .04em;
+    }
+    .badge-open::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--color-badge-ink); flex-shrink: 0; }
+
+    /* ─── Toolbar ────────────────────────────────────── */
+    .toolbar { display: flex; justify-content: flex-end; gap: .5rem; margin-bottom: 1rem; }
+    .btn {
+      font-family: var(--font-mono); font-size: .78rem; letter-spacing: .03em;
+      padding: .4rem .9rem; border-radius: var(--radius); border: 1.5px solid var(--color-border);
+      background: transparent; color: var(--color-ink-muted); cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: .4rem;
+      transition: border-color .15s, color .15s;
+    }
+    .btn:hover, .btn:focus-visible { border-color: var(--color-accent); color: var(--color-accent); outline: none; }
+
+    /* ─── Tabs ───────────────────────────────────────── */
+    .tab-nav {
+      display: flex; border-bottom: 2px solid var(--color-border);
+      margin-bottom: 2rem; overflow-x: auto; scrollbar-width: none;
+    }
+    .tab-nav::-webkit-scrollbar { display: none; }
+
+    [role="tab"] {
+      font-family: var(--font-mono); font-size: .82rem; letter-spacing: .05em;
+      text-transform: uppercase; padding: .75rem 1.25rem; border: none;
+      border-bottom: 2px solid transparent; background: transparent;
+      color: var(--color-ink-muted); cursor: pointer; white-space: nowrap;
+      margin-bottom: -2px; transition: color .15s, border-color .15s;
+    }
+    [role="tab"]:hover { color: var(--color-ink); }
+    [role="tab"][aria-selected="true"] { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    [role="tab"]:focus-visible { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+    [role="tabpanel"] { display: none; }
+    [role="tabpanel"].active { display: block; }
+
+    /* ─── Overview ───────────────────────────────────── */
+    .currently-strip {
+      background: var(--color-accent-bg); border-left: 3px solid var(--color-accent);
+      padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 1.5rem; font-size: .9rem;
+    }
+    .currently-strip strong {
+      font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--color-accent); display: block; margin-bottom: .15rem;
+    }
+    .summary-text { font-size: 1rem; line-height: 1.75; color: var(--color-ink-muted); max-width: 72ch; }
+
+    /* ─── Projects — card layout (no sidebar) ────────── */
+    .project-card {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .project-card:last-child { border-bottom: none; }
+
+    .project-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: .85rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono); font-size: .68rem; letter-spacing: .03em;
+      background: var(--color-tag-bg); color: var(--color-tag-ink);
+      padding: .2rem .5rem; border-radius: 3px;
+    }
+
+    .project-highlights {
+      list-style: none; display: flex; flex-direction: column; gap: .4rem;
+    }
+    .project-highlights li {
+      font-size: .875rem; color: var(--color-ink);
+      padding-left: 1.1rem; position: relative; line-height: 1.55;
+    }
+    .project-highlights li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--color-accent); font-size: .75rem; top: .18em;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: .5rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+    }
+
+    /* ─── Skills ─────────────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .skill-group-name {
+      font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--color-ink-muted); margin-bottom: .6rem;
+      padding-bottom: .35rem; border-bottom: 1px solid var(--color-border);
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .pill {
+      font-family: var(--font-mono); font-size: .75rem; padding: .3rem .65rem;
+      border-radius: 999px; border: 1.5px solid var(--color-border);
+      color: var(--color-ink-muted); background: transparent; line-height: 1.3;
+    }
+    .pill.highlight { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+
+    /* ─── Education ──────────────────────────────────── */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .edu-card {
+      border: 1px solid var(--color-border); border-radius: var(--radius);
+      padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: .3rem;
+    }
+    .edu-institution { font-family: var(--font-sans); font-weight: 600; font-size: .95rem; }
+    .edu-area { font-size: .875rem; color: var(--color-ink-muted); }
+    .edu-dates { font-family: var(--font-mono); font-size: .72rem; color: var(--color-ink-muted); margin-top: .1rem; }
+    .badge-in-progress {
+      display: inline-block; font-family: var(--font-mono); font-size: .68rem;
+      letter-spacing: .04em; text-transform: uppercase;
+      background: var(--color-accent-bg); color: var(--color-accent);
+      padding: .15rem .5rem; border-radius: 3px; margin-top: .25rem; width: fit-content;
+    }
+
+    .involvement-heading {
+      font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--color-ink-muted);
+      margin: 2rem 0 1rem; padding-bottom: .35rem; border-bottom: 1px solid var(--color-border);
+    }
+
+    .vol-card {
+      border: 1px solid var(--color-border); border-radius: var(--radius);
+      padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: .3rem;
+    }
+    .vol-org { font-family: var(--font-sans); font-weight: 600; font-size: .95rem; }
+    .vol-role { font-size: .875rem; color: var(--color-ink-muted); }
+    .vol-dates { font-family: var(--font-mono); font-size: .72rem; color: var(--color-ink-muted); }
+    .vol-highlights { list-style: none; display: flex; flex-direction: column; gap: .3rem; margin-top: .4rem; }
+    .vol-highlights li { font-size: .85rem; color: var(--color-ink); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+    .vol-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--color-accent); font-size: .75rem; top: .18em; }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 640px) {
+      header { grid-template-columns: 1fr; }
+      .header-photo, .header-photo-placeholder { width: 64px; height: 64px; }
+    }
+
+    /* ─── Print ──────────────────────────────────────── */
+    @media print {
+      @page { size: letter; margin: 0.6in 0.65in; }
+      :root { --color-ink-muted: #444; }
+      body { font-size: 10pt; background: white; line-height: 1.4; }
+
+      .skip-nav, .toolbar, .tab-nav, .badge-open, .currently-strip { display: none !important; }
+      .page { margin: 0; padding: 0; max-width: 100%; }
+
+      header { grid-template-columns: auto 1fr; gap: .75rem; padding: 0 0 .5rem; margin-bottom: .5rem; border-bottom: 1.5pt solid #111; }
+      .header-photo { width: 52pt; height: 52pt; }
+      .header-name { font-size: 18pt; }
+      .header-title { font-size: 7.5pt; margin-top: .1rem; }
+      .header-contact { font-size: 8pt; gap: .15rem .5rem; margin-top: .2rem; }
+      .header-contact a { color: #111; text-decoration: none; }
+
+      [role="tabpanel"] { display: block !important; margin-top: .1rem; }
+      [role="tabpanel"]::before {
+        display: block; font-family: var(--font-mono); font-size: 7pt; font-weight: 500;
+        text-transform: uppercase; letter-spacing: .1em;
+        border-bottom: 1pt solid #111; padding-bottom: .15rem; margin: .7rem 0 .35rem; color: #111;
+      }
+      #panel-overview::before  { content: 'Profile'; }
+      #panel-projects::before  { content: 'Projects'; }
+      #panel-skills::before    { content: 'Skills'; }
+      #panel-education::before { content: 'Education & Involvement'; }
+
+      .summary-text { font-size: 9pt; line-height: 1.5; color: #333; }
+
+      .project-card { padding: .3rem 0; border-bottom: .5pt solid #ddd; page-break-inside: avoid; }
+      .project-card:last-child { border-bottom: none; }
+      .project-name { font-size: 10pt; margin-bottom: .15rem; }
+      .project-tags { gap: .2rem; margin-bottom: .3rem; }
+      .tag { font-size: 7pt; padding: .1rem .3rem; }
+      .project-highlights { gap: .1rem; }
+      .project-highlights li { font-size: 8.5pt; line-height: 1.4; padding-left: .85rem; }
+      .project-link { display: none; }
+
+      .skills-grid { grid-template-columns: repeat(3, 1fr); gap: .35rem .75rem; }
+      .skill-group-name { font-size: 7pt; margin-bottom: .2rem; }
+      .skill-pills { gap: .2rem; }
+      .pill { font-size: 7pt; padding: .1rem .35rem; border: .5pt solid #ccc; border-radius: 2px; }
+      .pill.highlight { background: #222; color: white; border-color: #222; }
+
+      .edu-grid { grid-template-columns: repeat(3, 1fr); gap: .35rem; }
+      .edu-card { border: .5pt solid #ddd; padding: .35rem .5rem; gap: .15rem; }
+      .edu-institution { font-size: 8.5pt; }
+      .edu-area { font-size: 7.5pt; }
+      .edu-dates { font-size: 7pt; }
+
+      .involvement-heading { font-size: 7pt; margin: .5rem 0 .2rem; }
+      .vol-card { border: .5pt solid #ddd; padding: .35rem .5rem; gap: .1rem; }
+      .vol-org { font-size: 8.5pt; }
+      .vol-role, .vol-highlights li { font-size: 7.5pt; }
+      .vol-dates { font-size: 7pt; }
+
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-nav" href="#main-content">Skip to main content</a>
+
+  <div class="page">
+
+    <header id="main-content">
+      <div id="header-photo-slot" aria-hidden="true"></div>
+      <div class="header-meta">
+        <h1 class="header-name" id="resume-name"></h1>
+        <p class="header-title" id="resume-label"></p>
+        <div class="header-contact" id="resume-contact" aria-label="Contact information"></div>
+        <div class="header-badges" id="resume-badges" aria-label="Status"></div>
+      </div>
+    </header>
+
+    <div class="toolbar" role="toolbar" aria-label="Document actions">
+      <button class="btn" onclick="window.print()" aria-label="Print resume">
+        <span aria-hidden="true">⎙</span> Print
+      </button>
+      <a class="btn" href="resume.pdf" download aria-label="Download resume as PDF">
+        <span aria-hidden="true">↓</span> PDF
+      </a>
+    </div>
+
+    <nav aria-label="Resume sections">
+      <div class="tab-nav" role="tablist" aria-label="Resume sections">
+        <button role="tab" id="tab-overview"  aria-controls="panel-overview"  aria-selected="true"  tabindex="0">Overview</button>
+        <button role="tab" id="tab-projects"  aria-controls="panel-projects"  aria-selected="false" tabindex="-1">Projects</button>
+        <button role="tab" id="tab-skills"    aria-controls="panel-skills"    aria-selected="false" tabindex="-1">Skills</button>
+        <button role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button>
+      </div>
+    </nav>
+
+    <main>
+      <section role="tabpanel" id="panel-overview"  aria-labelledby="tab-overview"  class="active" tabindex="0">
+        <div class="currently-strip" id="currently-strip" aria-label="Currently"></div>
+        <p class="summary-text" id="summary-text"></p>
+      </section>
+
+      <section role="tabpanel" id="panel-projects"  aria-labelledby="tab-projects"  tabindex="0">
+        <div id="projects-list"></div>
+      </section>
+
+      <section role="tabpanel" id="panel-skills"    aria-labelledby="tab-skills"    tabindex="0">
+        <div class="skills-grid" id="skills-grid" aria-label="Skills by category"></div>
+      </section>
+
+      <section role="tabpanel" id="panel-education" aria-labelledby="tab-education" tabindex="0">
+        <div class="edu-grid" id="edu-grid" aria-label="Education"></div>
+        <p class="involvement-heading">Involvement</p>
+        <div class="edu-grid" id="vol-grid" aria-label="Involvement"></div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────────────
+    // DATA — injected by build.js from resume.json
+    // Do not edit this block directly. Edit resume.json instead.
+    // ─────────────────────────────────────────────────────
+    const resume = __RESUME_DATA__;
+
+    const PRIORITY_SKILLS = new Set([
+      "Python", "Machine Learning", "Natural Language Processing",
+      "SQL", "OpenCV", "Cybersecurity", "AWS EC2", "scikit-learn"
+    ]);
+
+    function esc(str) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function formatYear(d) {
+      if (!d) return 'Present';
+      return new Date(d).getFullYear();
+    }
+
+    function renderHeader() {
+      const b = resume.basics;
+      const slot = document.getElementById('header-photo-slot');
+      if (b.showPhoto && b.picture) {
+        slot.innerHTML = `<img class="header-photo" src="${esc(b.picture)}" alt="${esc(b.name)} photo" width="88" height="88">`;
+      } else {
+        const initials = b.name.split(' ').map(n => n[0]).join('');
+        slot.innerHTML = `<div class="header-photo-placeholder" aria-hidden="true">${esc(initials)}</div>`;
+      }
+      document.getElementById('resume-name').textContent = b.name;
+      document.getElementById('resume-label').textContent = b.label;
+
+      const parts = [];
+      if (b.email) parts.push(`<a href="mailto:${esc(b.email)}">${esc(b.email)}</a>`);
+      if (b.phone) parts.push(`<a href="tel:${esc(b.phone.replace(/\D/g,''))}">${esc(b.phone)}</a>`);
+      if (b.location?.city) parts.push(`<span>${esc(b.location.city)}, ${esc(b.location.region)}</span>`);
+      if (b.website) parts.push(`<a href="${esc(b.website)}" rel="noopener">${esc(b.website.replace('https://',''))}</a>`);
+      (b.profiles || []).forEach(p => {
+        if (p.url) parts.push(`<a href="${esc(p.url)}" rel="noopener">${esc(p.network)}</a>`);
+      });
+      document.getElementById('resume-contact').innerHTML = parts.join('');
+
+      if (b.openToWork) {
+        document.getElementById('resume-badges').innerHTML =
+          `<span class="badge-open" role="status">Open to Opportunities</span>`;
+      }
+    }
+
+    function renderOverview() {
+      const b = resume.basics;
+      const current = (resume.education || []).find(e => e.inProgress);
+      if (current) {
+        document.getElementById('currently-strip').innerHTML =
+          `<strong>Currently</strong>${esc(current.area)} — ${esc(current.institution)}`;
+      }
+      document.getElementById('summary-text').textContent = b.summary || '';
+    }
+
+    function renderProjects() {
+      document.getElementById('projects-list').innerHTML =
+        (resume.projects || []).map(p => {
+          const tags = (p.keywords || []).map(k => `<span class="tag">${esc(k)}</span>`).join('');
+          const bullets = (p.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
+          const link = p.url ? `<a class="project-link" href="${esc(p.url)}" rel="noopener">View project →</a>` : '';
+          return `
+            <article class="project-card" aria-label="${esc(p.name)}">
+              <h2 class="project-name">${esc(p.name)}</h2>
+              ${tags ? `<div class="project-tags">${tags}</div>` : ''}
+              ${bullets ? `<ul class="project-highlights">${bullets}</ul>` : ''}
+              ${link}
+            </article>`;
+        }).join('');
+    }
+
+    function renderSkills() {
+      document.getElementById('skills-grid').innerHTML =
+        (resume.skills || []).map(g => {
+          const pills = (g.keywords || []).map(k => {
+            const hi = PRIORITY_SKILLS.has(k) ? ' highlight' : '';
+            return `<span class="pill${hi}" role="listitem">${esc(k)}</span>`;
+          }).join('');
+          return `
+            <section aria-labelledby="sg-${esc(g.name.replace(/\W+/g,'-'))}">
+              <h2 class="skill-group-name" id="sg-${esc(g.name.replace(/\W+/g,'-'))}">${esc(g.name)}</h2>
+              <div class="skill-pills" role="list">${pills}</div>
+            </section>`;
+        }).join('');
+    }
+
+    function renderEducation() {
+      document.getElementById('edu-grid').innerHTML =
+        (resume.education || []).map(e => {
+          const start = formatYear(e.startDate);
+          const end   = e.inProgress ? 'present' : formatYear(e.endDate);
+          const dates = e.inProgress ? `${start} – present` : `${start} – ${end}`;
+          return `
+            <article class="edu-card" aria-label="${esc(e.area)}">
+              <div class="edu-institution">${e.url ? `<a href="${esc(e.url)}" rel="noopener">${esc(e.institution)}</a>` : esc(e.institution)}</div>
+              <div class="edu-area">${esc(e.area)}${e.studyType ? ` · ${esc(e.studyType)}` : ''}</div>
+              <div class="edu-dates"><time>${esc(dates)}</time>${e.location ? ` · ${esc(e.location)}` : ''}</div>
+              ${e.inProgress ? `<span class="badge-in-progress">In Progress</span>` : ''}
+            </article>`;
+        }).join('');
+
+      document.getElementById('vol-grid').innerHTML =
+        (resume.volunteer || []).map(v => {
+          const start = formatYear(v.startDate);
+          const end   = v.endDate ? formatYear(v.endDate) : 'Present';
+          const bullets = (v.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
+          return `
+            <article class="vol-card" aria-label="${esc(v.organization)}">
+              <div class="vol-org">${v.url ? `<a href="${esc(v.url)}" rel="noopener">${esc(v.organization)}</a>` : esc(v.organization)}</div>
+              <div class="vol-role">${esc(v.position)}</div>
+              <div class="vol-dates"><time>${start} – ${end}</time></div>
+              ${bullets ? `<ul class="vol-highlights">${bullets}</ul>` : ''}
+            </article>`;
+        }).join('');
+    }
+
+    function initTabs() {
+      const tabs   = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      function activate(tab) {
+        tabs.forEach(t => {
+          const sel = t === tab;
+          t.setAttribute('aria-selected', String(sel));
+          t.setAttribute('tabindex', sel ? '0' : '-1');
+        });
+        panels.forEach(p => p.classList.toggle('active', p.id === tab.getAttribute('aria-controls')));
+        tab.focus();
+      }
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activate(tab));
+        tab.addEventListener('keydown', e => {
+          const i = tabs.indexOf(e.currentTarget);
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate(tabs[(i+1) % tabs.length]); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate(tabs[(i-1+tabs.length) % tabs.length]); }
+          if (e.key === 'Home')       { e.preventDefault(); activate(tabs[0]); }
+          if (e.key === 'End')        { e.preventDefault(); activate(tabs[tabs.length-1]); }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader();
+      renderOverview();
+      renderProjects();
+      renderSkills();
+      renderEducation();
+      initTabs();
+      document.title = resume.basics.name + ' — Resume';
+    });
+  </script>
+</body>
+</html>

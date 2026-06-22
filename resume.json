@@ -2,7 +2,8 @@
   "basics": {
     "name": "Aradhnna Reddy",
     "label": "Computer Science Graduate — Data Science & Cybersecurity",
-    "picture": "",
+    "picture": "photo.jpg",
+    "showPhoto": true,
     "email": "aradhnnareddy@gmail.com",
     "phone": "(210) 381-0036",
     "website": "",
@@ -82,6 +83,7 @@
     {
       "institution": "University of Texas at Austin, McCombs School of Business",
       "area": "Post Graduate Program in Artificial Intelligence & Machine Learning: Business Applications",
+      "url": "https://www.mccombs.utexas.edu/",
       "startDate": "2026-05-01",
       "endDate": "2026-10-01",
       "inProgress": true
@@ -112,6 +114,7 @@
   "volunteer": [
     {
       "organization": "Sandwich SEVA",
+      "url": "https://www.havenforhope.org/",
       "position": "Volunteer",
       "startDate": "2023-01-01",
       "highlights": [
@@ -120,6 +123,7 @@
     },
     {
       "organization": "Association for Computing Machinery (ACM), UTSA Chapter",
+      "url": "https://acmutsa.org/",
       "position": "Member",
       "startDate": "2022-01-01",
       "endDate": "2025-12-01",
@@ -129,6 +133,7 @@
     },
     {
       "organization": "Sitaara",
+      "url": "https://sitaara.club/",
       "position": "Student Liaison",
       "startDate": "2022-01-01",
       "endDate": "2022-12-01",
