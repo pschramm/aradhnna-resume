@@ -117,6 +117,40 @@ When tailoring this resume for a specific job:
 
 ---
 
+## How the Automation Works
+
+This repo uses **GitHub Actions** — a built-in automation tool on GitHub that runs tasks automatically when you push changes. You don't need to install anything or run any commands yourself.
+
+### What happens when you push a change
+
+Whenever you update `resume.md`, `resume.json`, or `index.html` and push to the `main` branch, GitHub automatically:
+
+1. Spins up a temporary Linux machine in the cloud
+2. Checks out your repo files
+3. Runs the steps defined in [`.github/workflows/generate-pdf.yml`](.github/workflows/generate-pdf.yml)
+4. Generates a fresh `resume.pdf` from your latest content
+5. Commits the updated PDF back to the repo automatically
+
+So after every edit, your PDF stays in sync without you having to do anything.
+
+### How to watch it run
+
+1. Go to your repo on GitHub
+2. Click the **Actions** tab at the top
+3. You'll see a list of workflow runs — green checkmark = success, red X = something failed
+4. Click any run to see the full log of what happened
+
+### The file pipeline (current → future)
+
+Right now: `resume.md` → PDF (direct markdown conversion)
+
+Once `resume.json` and `index.html` are added:
+`resume.json` → `index.html` (rendered resume site) → `resume.pdf` (via Puppeteer, same as patrickschramm.dev)
+
+That's when the resume will also be live as a webpage, not just a PDF.
+
+---
+
 ## What's Still Missing
 
 These are items that would strengthen the resume but require input from Aradhnna:
